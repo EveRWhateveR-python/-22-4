@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>f2d52f67a35349528ac075472e40dc8d</title>
+  <title>d4935d05acfc4a4b8169e7db7a59d679</title>
   <style>
     html {
       line-height: 1.5;
@@ -249,14 +249,14 @@ id="департамент-анализа-данных-и-машинного-о�
 <p>факультета информационных технологий и</p>
 <p>анализа больших данных</p>
 <p>Зевакин И. Е.</p>
-<p>Нацчный руководитель:</p>
-<p>д.э.н., доцент, профессор</div></p>
+<p>Научный руководитель:</p>
+<p>д.э.н., доцент, профессор, Соловьёв В. И.</div></p>
 </div>
 <div class="cell markdown" id="r8x-xFk5g1-y">
 <h3>Бизнес задача</h3>
 <p>Я выбрал мебельный сайт магазина "Шатура". Там были взяты шкафы,
-стулья.</p>
-<p>Цель проекта - подборка комплекта мебели, а также для получения
+стеллажи.</p>
+<p>Цель проекта - подборка комплекта мебели, а также получение
 информации о самой мебели.</p>
 </div>
 <div class="cell markdown" id="lJpwlBiTh5L4">
@@ -291,7 +291,7 @@ id="департамент-анализа-данных-и-машинного-о�
 <h3>Выполнение проекта</h3>
 <p>Импортируем библиотеки:</p>
 </div>
-<div class="cell code" data-execution_count="58"
+<div class="cell code"
 data-colab="{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}"
 id="wLH9sT_Wo3Xg" data-outputId="c0337200-b73b-4ccb-df89-0add5714c6fa">
 <div class="sourceCode" id="cb1"><pre
@@ -304,7 +304,7 @@ Requirement already satisfied: docopt&gt;=0.6 in /usr/local/lib/python3.10/dist-
 </code></pre>
 </div>
 </div>
-<div class="cell code" data-execution_count="59"
+<div class="cell code"
 data-colab="{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}"
 id="3E4o_ignojkY" data-outputId="5a397604-cdd6-45ac-9f0e-6a4e2a05101e">
 <div class="sourceCode" id="cb3"><pre
@@ -330,7 +330,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 <div class="cell markdown" id="EJ1-QmI6psGv">
 <p>Для получения данных с сайта была испольозвана библиотека bs4.</p>
 </div>
-<div class="cell code" data-execution_count="60" id="_lrhtcwhojre">
+<div class="cell code" id="_lrhtcwhojre">
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;user-agent&#39;</span>: <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.51 Safari/537.36&#39;</span></span>
@@ -346,7 +346,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a hr
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ses <span class="op">=</span> req.Session()</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ses.headers <span class="op">=</span> headers</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="61" id="hftlSNG4pHys">
+<div class="cell code" id="hftlSNG4pHys">
 <div class="sourceCode" id="cb6"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>morph <span class="op">=</span> pymorphy2.MorphAnalyzer(lang<span class="op">=</span><span class="st">&#39;ru&#39;</span>)</span></code></pre></div>
 </div>
@@ -357,7 +357,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a hr
 <p>Первая функция принимает в себя кусок ссылки из третьей функции на
 определённый предмет и возвращает полную ссылку на него.</p>
 </div>
-<div class="cell code" data-execution_count="62" id="8NYXUoiCojt3">
+<div class="cell code" id="8NYXUoiCojt3">
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_category(link):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    link <span class="op">=</span> <span class="st">&#39;https://www.shatura.com&#39;</span> <span class="op">+</span> link</span>
@@ -365,7 +365,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a hr
 </div>
 <div class="cell markdown" id="NDkkdaf4kVqH">
 <p>Данная функция принимает в себя полную ссылку на предмет и название
-предмета. Вохвращает она словарь. В случае ошибки, когда html код сайта
+предмета. Возвращает она словарь. В случае ошибки, когда html код сайта
 отличается от общего, выводится название предмета, который не получилось
 спарсить.</p>
 </div>
@@ -374,7 +374,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a hr
 его описание, описание, которое потом пойдёт на векторизацию, цену,
 размеры, характеристики.</p>
 </div>
-<div class="cell code" data-execution_count="63" id="5a1VgZgvpEmw">
+<div class="cell code" id="5a1VgZgvpEmw">
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_good(link, good_title):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
@@ -413,11 +413,11 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a hr
 <div class="cell markdown" id="KZsy-FwJloQs">
 <p>Последняя функция парсинга приводит в действие оставльные функции
 парсинга. на вход получает страницу с каталога, который надо спасить, и
-все предметы, которые надо будет спасить.</p>
+все предметы, которые надо будет спарсить.</p>
 <p>Данная функция записывает всю информацию о предмете в указанный файл.
 Таким образом получается датасет, который пойдёт на обработку.</p>
 </div>
-<div class="cell code" data-execution_count="64" id="D_3s40HDpToZ">
+<div class="cell code" id="D_3s40HDpToZ">
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> return_info(link, info_list):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> info <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(info_list)):</span>
@@ -437,7 +437,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a hr
 <p>Данный код написан, чтобы проходиться по нескольким страницам
 каталога сразу.</p>
 </div>
-<div class="cell code" data-execution_count="65" id="nFvD2BGbpLa0">
+<div class="cell code" id="nFvD2BGbpLa0">
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">10</span><span class="op">+</span><span class="dv">1</span>):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> ses.get(<span class="ss">f&#39;https://www.shatura.com/goods/groups/shkafy_stellazhi_polki/?PAGEN_1=</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">&#39;</span>, verify<span class="op">=</span><span class="va">False</span>).html</span>
@@ -450,7 +450,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a h
 данных для векторизации.</p>
 <p>Также здесь указан пользотельский запрос.</p>
 </div>
-<div class="cell code" data-execution_count="135" id="EnwQOR1ypqsd">
+<div class="cell code" id="EnwQOR1ypqsd">
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>known_furniture <span class="op">=</span> [<span class="st">&#39;шкаф&#39;</span>, <span class="st">&#39;гардероб&#39;</span>,</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&#39;стеллаж&#39;</span>, <span class="st">&#39;гардеробная&#39;</span>, <span class="st">&#39;шкаф-стеллаж&#39;</span>, <span class="st">&#39;шкаф-витрина&#39;</span>]</span>
@@ -463,7 +463,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a h
 <div class="cell markdown" id="10oTre8NnbU3">
 <p>Функция для обработки запроса пользователя для векторизации.</p>
 </div>
-<div class="cell code" data-execution_count="129" id="5S4weYR_p4JU">
+<div class="cell code" id="5S4weYR_p4JU">
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> format_request(request):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    new_request <span class="op">=</span> []</span>
@@ -478,7 +478,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a h
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>formated_request <span class="op">=</span> format_request(user_request)</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="130" id="hRidOgNAzYuX">
+<div class="cell code" id="hRidOgNAzYuX">
 <div class="sourceCode" id="cb13"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>  <span class="st">&#39;шкаф&#39;</span> <span class="kw">in</span> request_furniture[<span class="dv">0</span>]:</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;shkaf.json&#39;</span>, <span class="st">&#39;r&#39;</span>) <span class="im">as</span> f:</span>
@@ -496,7 +496,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a h
 <div class="cell markdown" id="IbsF9d3uniDq">
 <p>Нахождение ключевых слов для исключения лишних данных.</p>
 </div>
-<div class="cell code" data-execution_count="131" id="WHzqu78Fp-if">
+<div class="cell code" id="WHzqu78Fp-if">
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>new_list <span class="op">=</span> []</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>new_dict <span class="op">=</span> []</span>
@@ -518,7 +518,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a h
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>                    new_dict.append(new_data[i][j])</span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>                    names.append(i)</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="132" id="VR47hR51qiI_">
+<div class="cell code" id="VR47hR51qiI_">
 <div class="sourceCode" id="cb15"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Токенизация предложений и подготовка данных для обучения</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tagged_data <span class="op">=</span> [TaggedDocument(words<span class="op">=</span>word_tokenize(sentence.lower()), tags<span class="op">=</span>[<span class="bu">str</span>(i)]) <span class="cf">for</span> i, sentence <span class="kw">in</span></span>
@@ -529,7 +529,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a h
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>model.build_vocab(tagged_data)</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>model.train(tagged_data, total_examples<span class="op">=</span>model.corpus_count, epochs<span class="op">=</span>model.epochs)</span></code></pre></div>
 </div>
-<div class="cell code" data-execution_count="133"
+<div class="cell code"
 data-colab="{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}"
 id="gixo-ms1qm_k" data-outputId="cb98a6b7-83a2-4d7d-9e4e-8432a823422e">
 <div class="sourceCode" id="cb16"><pre
@@ -555,7 +555,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a h
 <div class="cell markdown" id="14pbWVTDn2EN">
 <p>Вывод полученных данных.</p>
 </div>
-<div class="cell code" data-execution_count="134"
+<div class="cell code"
 data-colab="{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;,&quot;height&quot;:363}"
 id="v8n2T0BFArbE" data-outputId="7d9e4102-dc77-4cec-b007-a39654040738">
 <div class="sourceCode" id="cb18"><pre
@@ -878,7 +878,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a h
 
 </div>
 </div>
-<div class="cell code" data-execution_count="136"
+<div class="cell code"
 data-colab="{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}"
 id="kE7Qo6zGx3Qs" data-outputId="fe1b85b0-8844-4d06-ab68-4e362764aad6">
 <div class="sourceCode" id="cb19"><pre
@@ -996,32 +996,30 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a h
 <div class="cell markdown" id="lQJEW_bjn-p4">
 <h2>Выводы</h2>
 <p>Передо мной стояла задача вывести комплект для мебели. Он находится в
-описании.</p>
-<p>В ходе выполнения курсовой, я изучил множетсво сайтов, как их
+описании. В ходе выполнения курсовой, я изучил множество сайтов, как их
 парсить. Также я рассмотрел библиотеку Doc2Vec для векторизации данных и
-нахождения ближайших к векторизированному запросу.</p>
+нахождения ближайших к векторизованному запросу.</p>
 <p>Было построено несколько моделей, одна из которых была на полном
 датасете, но от неё я отказался в связи с тем, что на естественном
-запросе человека возмжожен непредвиденный вывод данных. В связи с этим
-данные были рахделены на несколько датасетов.</p>
-<p>В выводе similar_sentence можно увидеть насколько векторизированный
-запрос подходил под векторизированные данные прдмета.0</p>
+запросе человека возможен непредвиденный вывод данных. В связи с этим
+данные были разделены на несколько датасетов.</p>
+<p>В выводе similar_sentence можно увидеть насколько векторизованный
+запрос подходил под векторизованные данные предмета.</p>
 </div>
 <div class="cell markdown" id="ZLk88CTxqorc">
 <h2>Рекомендации</h2>
 <p>Анализ показал, что html код сайта "Шатура" не является наилучшим: в
-каких-то местах нет одного патерна html кода, нет определённого патерна
-описания.</p>
+каких-то местах нет одного паттерна html кода, нет определённого
+паттерна описания.</p>
 <p>Изначально хотелось рассмотреть сайт "Hoff" или "Яндекс маркет", но
 по причине того, что сайты имели какую-то блокировку к парсингу,
-спарсить их не получилось.</p>
-<p>Также в отличие от "Hoff" и "Яндекс маркета" на "Шатуре" не было
-определённости в компонентах: где-то были указаны все детали, где-то
-было указано количество компонентов, но не всех, где-то компоненты были
-указаны в описании.</p>
+спарсить их не получилось. Также в отличие от "Hoff" и "Яндекс маркета"
+на "Шатуре" не было определённости в компонентах: где-то были указаны
+все детали, где-то было указано количество компонентов, но не всех,
+где-то компоненты были указаны в описании.</p>
 <p>Хочется сказать ещё, что очень важно, как пользователь будет вводить
 запрос. Чем меньше запрос пользователя, тем больше разброс по датасету.
-Поэтому рекомендуется указывать как можно быльше информации о мебели,
+Поэтому рекомендуется указывать как можно больше информации о мебели,
 которую хочется приобрести.</p>
 </div>
 </body>
